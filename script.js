@@ -23,7 +23,7 @@ console.log(price.priceWithDiscount());
 //3
 console.log('---n3---');
 const user = {name: 'Abraham'},
-getUserName = function(){return this.name;};
+getUserName = function () { return this.name; };
 user.getName = getUserName;
 console.log(user.getName());
 
@@ -45,8 +45,8 @@ console.log('---n5---');
 const numerator = {
     value: 1,
     double: function () {this.value += this.value; return this;},
-    plusOne: function () { this.value = this.value + 1; return this; },
-    minusOne: function () { this.value = this.value - 1; return this; },
+    plusOne: function () {this.value = this.value + 1; return this;},
+    minusOne: function () {this.value = this.value - 1; return this;},
 };
 
 console.log(numerator.double().plusOne().plusOne().minusOne());
@@ -54,7 +54,7 @@ console.log(numerator.value);
 
 //6
 console.log('---n6---');
-const user1 = {name: 'Abraham'},
+const user1 = { name: 'Abraham' },
 otherUser = {
 	name: 'John',
 	getName: function() {return this.name}
@@ -68,7 +68,7 @@ console.log(otherUser.getName()); // 'John' визвали функцію яка
 
 //7
 console.log('---n7---');
-function getList(){return this.list}
+function getList() { return this.list }
 let users = {
     length: 4,
     list: ['Abraham', 'James', 'John', 'Steven']
@@ -126,7 +126,7 @@ let size = {width: 5, height: 10},
 console.log(getSquare.call(size));
 
 //11
-console.log('---n11---№№№');
+console.log('---n11---');
 let numbers = [4, 12, 0, 10, -2, 4];
 //function min(numbers){return Math.min(...this)}
 //console.log();
