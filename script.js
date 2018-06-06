@@ -48,7 +48,6 @@ const numerator = {
     plusOne: function () {this.value = this.value + 1; return this;},
     minusOne: function () {this.value = this.value - 1; return this;},
 };
-
 console.log(numerator.double().plusOne().plusOne().minusOne());
 console.log(numerator.value);
 
@@ -73,7 +72,6 @@ let users = {
     length: 4,
     list: ['Abraham', 'James', 'John', 'Steven']
 };
-
 console.log(getList()); //Результат - undefined, this визиває функцію getList() і пробує знайти list якого немає
 users.getList = getList;
 console.log(users.getList()); // Результат - ["Abraham", "James", "John", "Steven"], this вказує на об'єкт для якого було визвано ф-ю
@@ -112,7 +110,6 @@ const productList = {
 function totalOfList() {
     return this.products * this.price;
 }
-
 console.log(list.totalL());
 console.log(productList.totalP());
 
@@ -122,7 +119,6 @@ let size = {width: 5, height: 10},
     getSquare = function () {
         return this.width * this.height;
     };
-
 console.log(getSquare.call(size));
 
 //11
@@ -145,7 +141,6 @@ const block = {
     marginTop: '3px',
     marginBottom: '3px'
 };
-
 console.log(element1.getFullHeight());
 
 
