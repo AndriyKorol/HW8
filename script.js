@@ -21,18 +21,19 @@ console.log(price.getPrice());
 console.log(price.priceWithDiscount());
 
 //3
-console.log('---n3---');
-const user = {name: 'Abraham', getrName: function() {return getUserName}};
-let getUserName = function(){return this.name};
-//console.log(getUserName);
-//user.getUserName = getName;
-console.log(user.getrName());
+console.log('---n3---###');
+const user = {name: 'Abraham'},
+getUserName = function(){return this.name};
+//console.log(user.getName());
 
 //4
 console.log('---n4---');
 let elem = {
-    height: this.increment,
-    increment: function () { return this.height + 1}
+    height: 10,
+    increment: function () {
+		this.height += 1
+	return this.height 
+	}
 };
 console.log(elem.height);
 console.log(elem.increment());
@@ -42,9 +43,9 @@ console.log(elem.height);
 console.log('---n5---');
 const numerator = {
     value: 1,
-    double: function () {return this.value * 2},
-    plusOne: function () { return this.double + 1 },
-    minusOne: function () { return this.plusOne - 1 },
+    double: function () {this.value += this.value; return this;},
+    plusOne: function () { this.value = this.value + 1; return this; },
+    minusOne: function () { this.value = this.value - 1; return this; },
 };
 
 console.log(numerator.double().plusOne().plusOne().minusOne());
@@ -52,21 +53,31 @@ console.log(numerator.value);
 
 //6
 console.log('---n6---');
+const user1 = {name: 'Abraham'},
+otherUser = {
+	name: 'John',
+	getName: function() {return this.name}
+}
+console.log(user1.getName); //undefined не може знайти параметер getName, оскільки його немає в обєкті
+user1.getName = otherUser.getName
+console.log(user1.getName()); // 'Abraham' присвоїли параметер getName до обєкту user1 і використали його
+console.log(otherUser.getName()); // 'John' визвали функцію яка присвоєна в цьому обєкті, і функція повернуло результат
+
 
 
 //7
 console.log('---n7---');
-function getList(){return this.list;}
+function getList(){return this.list}
 let users = {
     length: 4,
     list: ['Abraham', 'James', 'John', 'Steven']
 };
 
-getList(); //Результат - undefined, this визиває функцію getList() і пробує знайти list якого немає
+console.log(getList()); //Результат - undefined, this визиває функцію getList() і пробує знайти list якого немає
 users.getList = getList;
-users.getList(); // Результат - ["Abraham", "James", "John", "Steven"], this вказує на об'єкт для якого було визвано ф-ю
+console.log(users.getList()); // Результат - ["Abraham", "James", "John", "Steven"], this вказує на об'єкт для якого було визвано ф-ю
                 //і в обєкті є list, тому і видає значення свойства list
-getList.call(users); // Результат - ["Abraham", "James", "John", "Steven"], визиваємо функцію з вказаним значенням this
+console.log(getList.call(users)); // Результат - ["Abraham", "James", "John", "Steven"], визиваємо функцію з вказаним значенням this
                     // (об'єкт users),з якого потім виводиться параметер list
 
 //8
@@ -114,7 +125,7 @@ let size = {width: 5, height: 10},
 console.log(getSquare.call(size));
 
 //11
-console.log('---n11---');
+console.log('---n11---№№№');
 let numbers = [4, 12, 0, 10, -2, 4];
 //function min(numbers){return Math.min(...this)}
 //console.log();
