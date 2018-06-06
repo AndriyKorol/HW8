@@ -124,8 +124,8 @@ console.log(getSquare.call(size));
 //11
 console.log('---n11---');
 let numbers = [4, 12, 0, 10, -2, 4];
-//function min(numbers){return Math.min(...this)}
-//console.log();
+function min(){return Math.min(...this)}
+console.log(min.call(numbers));
 
 //12
 console.log('---n12---');
@@ -150,6 +150,5 @@ let element = {
     height: 25,
     getHeight: function(){return this.height}
 };
-
 let getElementHeight = element.getHeight();
 console.log(getElementHeight);
