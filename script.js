@@ -21,10 +21,11 @@ console.log(price.getPrice());
 console.log(price.priceWithDiscount());
 
 //3
-console.log('---n3---###');
+console.log('---n3---');
 const user = {name: 'Abraham'},
-getUserName = function(){return this.name};
-//console.log(user.getName());
+getUserName = function(){return this.name;};
+user.getName = getUserName;
+console.log(user.getName());
 
 //4
 console.log('---n4---');
