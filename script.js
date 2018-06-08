@@ -45,8 +45,8 @@ console.log('---n5---');
 const numerator = {
     value: 1,
     double: function () {this.value += this.value; return this;},
-    plusOne: function () {this.value = this.value + 1; return this;},
-    minusOne: function () {this.value = this.value - 1; return this;},
+    plusOne: function () {++this.value; return this;},
+    minusOne: function () {--this.value; return this;},
 };
 console.log(numerator.double().plusOne().plusOne().minusOne());
 console.log(numerator.value);
